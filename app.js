@@ -12,12 +12,14 @@ const childrenInfo = document.querySelector(".childrenInfo");
 const childInfoField = document.querySelector(".childInfoField");
 const addChild = document.querySelector(".addChild");
 const childContainer = document.querySelector(".childContainer");
+const removeChild = document.querySelector(".removeChild")
 
 const petInfo = document.querySelector(".petInfo");
 const hasPet = document.querySelector("#hasPetYes");
 const petInfoField = document.querySelector(".petInfoFields");
 const petContainer = document.querySelector(".petContainer");
 const addPet = document.querySelector(".addPet");
+const removePet = document.querySelector(".removePet");
 const recruiterFields = document.querySelector(".recruiterFields");
 
 hasPet.addEventListener("change", ()=>{
@@ -141,7 +143,7 @@ function AddChildName(count){
     const inputDate = document.createElement("input");
     inputDate.setAttribute("type","date");
     inputDate.classList.add("form-control");
-    inputDate.setAttribute("name", "childBirthdate2");
+    inputDate.setAttribute("name", "childBirthdate" +count);
     
     const newStuff = ClassList();
     newStuff.appendChild(inputDate);
@@ -150,31 +152,47 @@ function AddChildName(count){
     const inputGender = document.createElement("input");
     inputGender.setAttribute("type","text");
     inputGender.classList.add("form-control")
-    inputGender.setAttribute("name","childGender2");
+    inputGender.setAttribute("name","childGender" + count);
     inputGender.setAttribute("placeholder","Childs Gender");
 
     const selectGender = ClassList();
     selectGender.appendChild(inputGender);
     newElement.appendChild(selectGender);
-
-    console.log(newName);
-    console.log(newStuff);
-    console.log(selectGender);
-
  }
 
+let childCount=2;
 addChild.addEventListener("click",(e)=>{
     e.preventDefault();
-    //testClassNameChange
-    count=3;
-    AddChildName(3);
-
+    AddChildName(childCount);
+    childCount++;
 })
+removeChild.addEventListener("click",(e)=>{
+    e.preventDefault();
+    if(childCount>=2){
+        RemoveElement(childContainer);
+        childCount--;
+    }
+    console.log(childCount);
+})
+let petCount =2;
 addPet.addEventListener("click",(e)=>{
     e.preventDefault();
-    AddAdditionalPet(3);
+    AddAdditionalPet(petCount);
+    petCount++;
 })
+function RemoveElement(containerName){
+    containerName.removeChild(containerName.lastChild);
+}
 
+removePet.addEventListener("click",(e)=>{
+    e.preventDefault();
+    if(petCount>=2){
+    RemoveElement(petContainer);
+    petCount--;
+    }
+    console.log(petCount);
+
+})
 function CreateDiv(){
     
     const div = document.createElement("div");

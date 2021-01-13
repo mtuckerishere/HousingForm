@@ -245,9 +245,12 @@
                   </label>
                 </div>
               </div>
-              <div class="form-group col-md-3">
-                <button class="btn btn-primary addChild">
-                  Add Another Child
+              <div class="form-group col-md-1">
+                <button class="btn btn-primary addChild">Add Child</button>
+              </div>
+              <div class="form-group col-md-1">
+                <button class="btn btn-danger removeChild">
+                  Remove Child
                 </button>
               </div>
             </div>
@@ -255,7 +258,7 @@
         </fieldset>
         <fieldset class="petInfoFields" disabled>
           <div class="petContainer">
-            <div class="form-row petInfo">
+            <div class="form-row petInfo" id="petHeader">
               <div class="form-group col-md-3">
                 <label for="typeOfPet">Type of Pet</label>
                 <select class="form-control" id="typeOfPet" name="typeOfPet" required>
@@ -271,10 +274,11 @@
                 <label for="petWeight">Pet Weight(lbs.)</label>
                 <input type="number" class="form-control" id="petWeight" name="petWeight" min="0" value="" />
               </div>
-              <div class="form-group col-md-3">
-                <button class="btn btn-primary addPet">
-                  Add Pet
-                </button>
+              <div class="form-group col-md-1">
+                <button class="btn btn-primary addPet">Add Pets</button>
+              </div>
+              <div class="form-group col-md-1">
+                <button class="btn btn-danger removePet">Remove Pet</button>
               </div>
             </div>
           </div>

@@ -25,6 +25,11 @@ const recruiterFields = document.querySelector(".recruiterFields");
 const isNewEmployee = document.querySelector("#isNewEmployee");
 const stateCity = document.querySelectorAll(".stateCity");
 const currentBranch = document.querySelector(".currentBranch");
+const travelerApproved = document.querySelector("#travelersApproved")
+const additionalTravelerInfo = document.querySelector(".additionalTravelerInfo");
+const addTraveler = document.querySelector(".addTraveler");
+const removeTraveler = document.querySelector(".removeTraveler");
+const travelContainer = document.querySelector(".travelContainer");
 
 const sameOnGovID = document.querySelector("#nameOnGovIdSame");
 const govID = document.querySelector(".govIdContainer");
@@ -65,7 +70,10 @@ sameOnGovID.addEventListener("change",()=>{
     
     console.log(sameOnGovID.value);
 })
-
+travelerApproved.addEventListener("change",()=>{
+    EnableFields(additionalTravelerInfo,additionalTravelerInfo,travelerApproved);
+    console.log(travelerApproved.value);
+})
 hasPet.addEventListener("change", ()=>{
     EnableFields(petInfoField,petInfoField, hasPet);
 })
@@ -106,11 +114,11 @@ function EnableFields(field, displayInfo, hasAttribute){
         displayInfo.style.display="none";
     }
 }
-function ClassList(){
+function ClassList(size){
     const divChild = document.createElement("div");
 
     divChild.classList.add("form-group");
-    divChild.classList.add("col-md-3");
+    divChild.classList.add(size);
     
    
     return divChild;
@@ -149,7 +157,7 @@ function AddAdditionalPet(count){
     inputBreed.setAttribute("name","breedOfPet" + count);
     inputBreed.setAttribute("placeholder","Breed of Pet");
  
-    const newBreed = ClassList();
+    const newBreed = ClassList("col-md-3");
     newBreed.appendChild(inputBreed);
     newElement.appendChild(newBreed);
 
@@ -159,7 +167,7 @@ function AddAdditionalPet(count){
     inputWeight.classList.add("form-control");
     inputWeight.setAttribute("name", "petWeight" + count);
 
-    const newWeight = ClassList();
+    const newWeight = ClassList("col-md-3");
     newWeight.appendChild(inputWeight);
     newElement.appendChild(newWeight);
 }
@@ -189,7 +197,7 @@ function AddChildName(count){
     inputDate.classList.add("form-control");
     inputDate.setAttribute("name", "childBirthdate" +count);
     
-    const newStuff = ClassList();
+    const newStuff = ClassList("col-md-3");
     newStuff.appendChild(inputDate);
     newElement.appendChild(newStuff);
 
@@ -199,11 +207,42 @@ function AddChildName(count){
     inputGender.setAttribute("name","childGender" + count);
     inputGender.setAttribute("placeholder","Childs Gender");
 
-    const selectGender = ClassList();
+    const selectGender = ClassList("col-md-3");
     selectGender.appendChild(inputGender);
     newElement.appendChild(selectGender);
  }
 
+ function AddAdditionalTraveler(count){
+    const div = document.createElement("div");
+    div.classList.add("form-row");
+    
+    const divChild = document.createElement("div");
+
+    divChild.classList.add("form-group");
+    divChild.classList.add("col-md-5");
+    
+    const newElement = travelContainer.appendChild(div);
+    const previousDiv = newElement.appendChild(divChild);
+
+    const travelerFirstName = document.createElement("input");
+    travelerFirstName.setAttribute("type","text");
+    travelerFirstName.classList.add("form-control");
+    travelerFirstName.setAttribute("name", "additionalTravelerFirstName" + count)
+    travelerFirstName.setAttribute("placeholder", "First Name");
+
+    divChild.appendChild(travelerFirstName);
+
+    const travelerLastName = document.createElement("input");
+    travelerLastName.setAttribute("type","text");
+    travelerLastName.classList.add("form-control");
+    travelerLastName.setAttribute("name", "additionalTravelerLastName" + count);
+    travelerLastName.setAttribute("placeholder","Last Name");
+
+    const inputTravelerLastName = ClassList("col-md-5");
+    inputTravelerLastName.appendChild(travelerLastName);
+    newElement.appendChild(inputTravelerLastName);
+
+ }
 let childCount=2;
 addChild.addEventListener("click",(e)=>{
     e.preventDefault();
@@ -233,21 +272,17 @@ removePet.addEventListener("click",(e)=>{
     RemoveElement(petContainer);
     petCount--;
     }
-
 })
-function CreateDiv(){
-    
-    const div = document.createElement("div");
-    div.classList.add("form-row");
-    
-    const divChild = document.createElement("div");
-
-    divChild.classList.add("form-group");
-    divChild.classList.add("col-md-3");
-    
-    const newElement = childContainer.appendChild(div);
-    newElement.appendChild(divChild);
-    
-    return newElement;
-   
-}
+let additionalTravel =2;
+addTraveler.addEventListener("click", (e)=>{
+    e.preventDefault();
+    AddAdditionalTraveler(additionalTravel);
+    additionalTravel++;
+})
+removeTraveler.addEventListener("click", (e)=>{
+    e.preventDefault();
+    if(additionalTravel>=2){
+    RemoveElement(travelContainer);
+    }
+    additionalTravel--;
+})

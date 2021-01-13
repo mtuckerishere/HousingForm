@@ -28,7 +28,10 @@ label{
 .stateCity{
     display:none;
 }
-.currentBranch{
+.currentBranch {
+    display:none;
+}
+.additionalTravelerInfo{
     display:none;
 }
 

@@ -78,13 +78,15 @@ travelerApproved.addEventListener("change",()=>{
     EnableFields(additionalTravelerInfo,additionalTravelerInfo,travelerApproved);
     console.log(travelerApproved.value);
 })
+
 hasPet.addEventListener("change", ()=>{
     EnableFields(petInfoField,petInfoField, hasPet);
 })
+
 hasChildren.addEventListener("change",()=>{
-    EnableFields(childInfoField, childInfoField, hasChildren);
-    
+    EnableFields(childInfoField, childInfoField, hasChildren); 
 })
+
 hasFamily.addEventListener("change",()=>{ 
     EnableFields(familyInfoField, familyInfoField, hasFamily);
 })
@@ -123,8 +125,7 @@ function ClassList(size){
 
     divChild.classList.add("form-group");
     divChild.classList.add(size);
-    
-   
+
     return divChild;
 }
 
@@ -252,7 +253,21 @@ function AddChildName(count){
     newElement.appendChild(inputTravelerLastName);
 
  }
+ function NewDivFormat(containerName){
+    const div = document.createElement("div");
+    div.classList.add("form-row");
+    
+    const divChild = document.createElement("div");
+
+    divChild.classList.add("form-group");
+    divChild.classList.add("col-md-4");
+    
+    const newElement = containerName.appendChild(div);
+    const previousDiv = newElement.appendChild(divChild);
+  
+ }
  function AddHouseHuntingTrip(count){
+     
     const div = document.createElement("div");
     div.classList.add("form-row");
     
@@ -290,6 +305,7 @@ function AddChildName(count){
     houseHuntingEndInput.appendChild(houseHuntingTripEnd);
     newElement.appendChild(houseHuntingEndInput);
  }
+
 let childCount=2;
 addChild.addEventListener("click",(e)=>{
     e.preventDefault();

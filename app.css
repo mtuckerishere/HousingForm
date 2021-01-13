@@ -25,6 +25,12 @@
 label{
     font-weight: bold;
 }
+.stateCity{
+    display:none;
+}
+.currentBranch{
+    display:none;
+}
 
 
 

@@ -20,7 +20,11 @@ const petInfoField = document.querySelector(".petInfoFields");
 const petContainer = document.querySelector(".petContainer");
 const addPet = document.querySelector(".addPet");
 const removePet = document.querySelector(".removePet");
+
 const recruiterFields = document.querySelector(".recruiterFields");
+const isNewEmployee = document.querySelector("#isNewEmployee");
+const stateCity = document.querySelectorAll(".stateCity");
+const currentBranch = document.querySelector(".currentBranch");
 
 const sameOnGovID = document.querySelector("#nameOnGovIdSame");
 const govID = document.querySelector(".govIdContainer");
@@ -29,6 +33,26 @@ const lastName = document.querySelector("#empLastName");
 const govFirstName = document.querySelector("#empFirstNameGov");
 const govLastName = document.querySelector("#empLastNameGov");
 
+isNewEmployee.addEventListener("change",()=>{
+    if(isNewEmployee.value==="Yes"){
+        console.log(isNewEmployee.value);
+        currentBranch.style.display="none";
+        for(i=0;i<stateCity.length; i++){
+        stateCity[i].style.display ="block"
+        }
+        
+
+    }
+    if(isNewEmployee.value==="No"){
+        console.log(isNewEmployee.value);
+        for(i=0;i<stateCity.length; i++){
+            stateCity[i].style.display ="none"
+            }
+            
+        currentBranch.style.display="block";
+        console.log(stateCity);
+    }
+})
 sameOnGovID.addEventListener("change",()=>{
     if(!sameOnGovID.cheked){
         govID.style.display="block";

@@ -122,17 +122,42 @@
       <fieldset class="employeeFields">
         <h2>Employee Information</h2>
         <div class="form-row">
-          <div class="form-group col-md-6">
+          <div class="form-group col-md-5">
             <label for="empFirstName">First Name</label>
             <input type="text" class="form-control" name="empFirstName" id="empFirstName" placeholder="First Name"
               value="" required />
           </div>
-          <div class="form-group col-md-6">
+          <div class="form-group col-md-5">
             <label for="empLastName">Last Name</label>
             <input type="text" class="form-control" id="empLastName" name="empLastName" placeholder="Last Name" value=""
               required />
           </div>
+
+          <div class="form-group col-md-2">
+
+            <label for="govIdSame">Same on Gov ID?</label>
+            <div>
+              <input type="checkbox" class="form-check-label" name="govIdSame" id="nameOnGovIdSame" value="Yes" />
+              <label class="form-check-label" for="govIdSame"> Yes </label>
+            </div>
+          </div>
         </div>
+        <div class="govIdContainer">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+
+              <label for="empFirstNameGov">First Name(On Gov ID)</label>
+              <input type="text" class="form-control" name="empFirstNameGov" id="empFirstNameGov"
+                placeholder="First Name" value="">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="empLastNameGov">Last Name(On Gov ID)</label>
+              <input type="text" class="form-control" id="empLastNameGov" name="empLastNameGov" placeholder="Last Name"
+                value="">
+            </div>
+          </div>
+        </div>
+
         <div class="form-row">
           <div class="form-group col-md-4">
             <label for="birthdate">Birthdate</label>
@@ -177,8 +202,8 @@
         <div class="form-row">
           <div class="form-group col-md-4">
             <label>Are other family memebers traveling with you?</label>
-            <div class="form-check-inline">
-              <input class="form-check-input" type="checkbox" name="addFamily" id="addFamilyYes" value="Yes" />
+            <div>
+              <input class="form-check-label" type="checkbox" name="addFamily" id="addFamilyYes" value="Yes" />
               <label class="form-check-label" for="addFamily"> Yes </label>
             </div>
           </div>
@@ -203,17 +228,17 @@
         </div>
         <fieldset class="familyInfoField" disabled>
           <div class="form-row family" id="family">
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-5">
               <label for="spouseFirstName">Spouse/Significant Other First Name(on Gov ID)</label>
               <input type="text" id="spouseFirstName" class="form-control" name="spouseFirstName"
                 placeholder="First Name" value="" required />
             </div>
-            <div class="form-group col-md-4">
-              <label for="spouseLastName">Spouse/Significant Other First Name(on Gov ID)</label>
+            <div class="form-group col-md-5">
+              <label for="spouseLastName">Spouse/Significant Other Last Name(on Gov ID)</label>
               <input type="text" id="spouseLastName" class="form-control" name="spouseLastName" placeholder="Last Name"
                 value="" required />
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-2">
               <label for="spouseBirthdate">Birthdate</label>
               <input type="date" class="form-control" id="spouseBirthdate" name="spouseBirthDate" value="" required />
             </div>

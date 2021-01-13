@@ -22,6 +22,26 @@ const addPet = document.querySelector(".addPet");
 const removePet = document.querySelector(".removePet");
 const recruiterFields = document.querySelector(".recruiterFields");
 
+const sameOnGovID = document.querySelector("#nameOnGovIdSame");
+const govID = document.querySelector(".govIdContainer");
+const firstName = document.querySelector("#empFirstName");
+const lastName = document.querySelector("#empLastName");
+const govFirstName = document.querySelector("#empFirstNameGov");
+const govLastName = document.querySelector("#empLastNameGov");
+
+sameOnGovID.addEventListener("change",()=>{
+    if(!sameOnGovID.cheked){
+        govID.style.display="block";
+
+    }if(sameOnGovID.checked){
+        govID.style.display ="none";
+        govFirstName.value = firstName.value;
+        govLastName.value = lastName.value;
+    }
+    
+    console.log(sameOnGovID.value);
+})
+
 hasPet.addEventListener("change", ()=>{
     EnableFields(petInfoField,petInfoField, hasPet);
 })
@@ -172,7 +192,6 @@ removeChild.addEventListener("click",(e)=>{
         RemoveElement(childContainer);
         childCount--;
     }
-    console.log(childCount);
 })
 let petCount =2;
 addPet.addEventListener("click",(e)=>{
@@ -190,7 +209,6 @@ removePet.addEventListener("click",(e)=>{
     RemoveElement(petContainer);
     petCount--;
     }
-    console.log(petCount);
 
 })
 function CreateDiv(){

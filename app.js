@@ -16,17 +16,19 @@ const childContainer = document.querySelector(".childContainer");
 const petInfo = document.querySelector(".petInfo");
 const hasPet = document.querySelector("#hasPetYes");
 const petInfoField = document.querySelector(".petInfoFields");
+const petContainer = document.querySelector(".petContainer");
+const addPet = document.querySelector(".addPet");
 const recruiterFields = document.querySelector(".recruiterFields");
 
 hasPet.addEventListener("change", ()=>{
-    EnableFields(petInfoField,petInfo, hasPet);
+    EnableFields(petInfoField,petInfoField, hasPet);
 })
 hasChildren.addEventListener("change",()=>{
     EnableFields(childInfoField, childInfoField, hasChildren);
     
 })
 hasFamily.addEventListener("change",()=>{ 
-    EnableFields(familyInfoField, familyInfo, hasFamily);
+    EnableFields(familyInfoField, familyInfoField, hasFamily);
 })
 
 toggleForm.addEventListener("click",function(evt){ 
@@ -69,6 +71,52 @@ function ClassList(){
 }
 
 //parameter used for testing class names
+function AddAdditionalPet(count){
+    const div = document.createElement("div");
+    div.classList.add("form-row");
+    
+    const divChild = document.createElement("div");
+
+    divChild.classList.add("form-group");
+    divChild.classList.add("col-md-3");
+    
+    const newElement = petContainer.appendChild(div);
+    const previousDiv = newElement.appendChild(divChild);
+
+    const newAnimal = document.createElement("select");
+    newAnimal.classList.add("form-control")
+    newAnimal.setAttribute("name","typeOfPet" + count );
+    
+    const animalTypes = ["Dog","Cat"];
+    for(i=0;i<animalTypes.length;i++){
+        const animalType = document.createElement("option");
+        animalType.value = animalTypes[i];
+        animalType.text = animalTypes[i];
+        newAnimal.appendChild(animalType);
+    }
+    
+    divChild.appendChild(newAnimal);
+
+    const inputBreed = document.createElement("input");
+    inputBreed.setAttribute("type","text");
+    inputBreed.classList.add("form-control");
+    inputBreed.setAttribute("name","breedOfPet" + count);
+    inputBreed.setAttribute("placeholder","Breed of Pet");
+ 
+    const newBreed = ClassList();
+    newBreed.appendChild(inputBreed);
+    newElement.appendChild(newBreed);
+
+    const inputWeight = document.createElement("input");
+    inputWeight.setAttribute("type","number");
+    inputWeight.setAttribute("min","0");
+    inputWeight.classList.add("form-control");
+    inputWeight.setAttribute("name", "petWeight" + count);
+
+    const newWeight = ClassList();
+    newWeight.appendChild(inputWeight);
+    newElement.appendChild(newWeight);
+}
 function AddChildName(count){
 
     const div = document.createElement("div");
@@ -88,7 +136,7 @@ function AddChildName(count){
     inputName.setAttribute("name","childName" + count );
     inputName.setAttribute("placeholder","Childs Name");
     
-    const newName = divChild.appendChild(inputName);
+    divChild.appendChild(inputName);
 
     const inputDate = document.createElement("input");
     inputDate.setAttribute("type","date");
@@ -121,6 +169,10 @@ addChild.addEventListener("click",(e)=>{
     count=3;
     AddChildName(3);
 
+})
+addPet.addEventListener("click",(e)=>{
+    e.preventDefault();
+    AddAdditionalPet(3);
 })
 
 function CreateDiv(){

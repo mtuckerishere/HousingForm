@@ -4,13 +4,13 @@
 .recruiterInformation{
     display: none;
 }
-.family{
+.familyInfoField{
     display: none;
 }
 .childInfoField{
     display:none;
 }
-.petInfo{
+.petInfoFields{
     display: none;
 }
 .submitButton{

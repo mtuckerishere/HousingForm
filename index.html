@@ -254,21 +254,28 @@
           </div>
         </fieldset>
         <fieldset class="petInfoFields" disabled>
-          <div class="form-row petInfo">
-            <div class="form-group col-md-4">
-              <label for="typeOfPet">Type of Pet</label>
-              <select class="form-control" id="typeOfPet" name="typeOfPet" required>
-                <option value="Dog">Dog</option>
-                <option value="Cat">Cat</option>
-              </select>
-            </div>
-            <div class="form-group col-md-4">
-              <label for="breedOfPet">Breed of Pet</label>
-              <input type="text" class="form-control" id="breedOfPet" name="breedOfPet" value="" />
-            </div>
-            <div class="form-group col-md-4">
-              <label for="petWeight">Pet Weight(lbs.)</label>
-              <input type="number" class="form-control" id="petWeight" name="petWeight" min="0" value="" />
+          <div class="petContainer">
+            <div class="form-row petInfo">
+              <div class="form-group col-md-3">
+                <label for="typeOfPet">Type of Pet</label>
+                <select class="form-control" id="typeOfPet" name="typeOfPet" required>
+                  <option value="Dog">Dog</option>
+                  <option value="Cat">Cat</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="breedOfPet">Breed of Pet</label>
+                <input type="text" class="form-control" id="breedOfPet" name="breedOfPet" value="" />
+              </div>
+              <div class="form-group col-md-3">
+                <label for="petWeight">Pet Weight(lbs.)</label>
+                <input type="number" class="form-control" id="petWeight" name="petWeight" min="0" value="" />
+              </div>
+              <div class="form-group col-md-3">
+                <button class="btn btn-primary addPet">
+                  Add Pet
+                </button>
+              </div>
             </div>
           </div>
         </fieldset>

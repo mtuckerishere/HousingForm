@@ -1,0 +1,38 @@
+.employeeForm{
+    display: block;
+}
+.recruiterInformation{
+    display: none;
+}
+.family{
+    display: none;
+}
+.childrenInfo{
+    display:none;
+}
+.petInfo{
+    display: none;
+}
+.submitButton{
+    display:block;
+    margin: 0 auto;
+    width: 25%;
+
+}
+.align-right{
+    text-align: right;
+
+}
+label{
+    font-weight: bold;
+
+}
+.childrenInfo .div{
+    
+}
+
+
+
+
+
+

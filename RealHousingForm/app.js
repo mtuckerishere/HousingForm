@@ -22,14 +22,14 @@ hasPet.addEventListener("change", ()=>{
     EnableFields(petInfoField,petInfo, hasPet);
 })
 hasChildren.addEventListener("change",()=>{
-    EnableFields(childInfoField, childInfoField, hasChildren);
+    EnableFields(childInfoField, childrenInfo, hasChildren);
     
 })
 hasFamily.addEventListener("change",()=>{ 
     EnableFields(familyInfoField, familyInfo, hasFamily);
 })
 
-toggleForm.addEventListener("click",function(evt){ 
+toggleForm.addEventListener("click",function(){ 
 
     ChangeForm();
 });
@@ -52,7 +52,7 @@ function ChangeForm(){
 function EnableFields(field, displayInfo, hasAttribute){
     if(hasAttribute.checked){
         field.disabled = false;
-        displayInfo.style.display="block";       
+        displayInfo.style.display="flex";       
     }else{
         field.disabled = true;
         displayInfo.style.display="none";
@@ -139,3 +139,4 @@ function CreateDiv(){
     return newElement;
    
 }
+

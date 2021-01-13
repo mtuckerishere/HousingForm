@@ -38,6 +38,10 @@ const lastName = document.querySelector("#empLastName");
 const govFirstName = document.querySelector("#empFirstNameGov");
 const govLastName = document.querySelector("#empLastNameGov");
 
+const addHouseTrip = document.querySelector(".addHouseTrip");
+const removeHouseTrip = document.querySelector(".removeHouseTrip");
+const houseHuntingContainer = document.querySelector(".houseHuntingContainer");
+
 isNewEmployee.addEventListener("change",()=>{
     if(isNewEmployee.value==="Yes"){
         console.log(isNewEmployee.value);
@@ -201,12 +205,17 @@ function AddChildName(count){
     newStuff.appendChild(inputDate);
     newElement.appendChild(newStuff);
 
-    const inputGender = document.createElement("input");
-    inputGender.setAttribute("type","text");
+    const inputGender = document.createElement("select");
     inputGender.classList.add("form-control")
-    inputGender.setAttribute("name","childGender" + count);
-    inputGender.setAttribute("placeholder","Childs Gender");
-
+    inputGender.setAttribute("name","childGender" + count );
+    
+    const genderSelection = ["Male","Female"];
+    for(i=0;i<genderSelection.length;i++){
+        const genderOption = document.createElement("option");
+        genderOption.value = genderSelection[i];
+        genderOption.text = genderSelection[i];
+        inputGender.appendChild(genderOption);
+    }
     const selectGender = ClassList("col-md-3");
     selectGender.appendChild(inputGender);
     newElement.appendChild(selectGender);
@@ -243,6 +252,44 @@ function AddChildName(count){
     newElement.appendChild(inputTravelerLastName);
 
  }
+ function AddHouseHuntingTrip(count){
+    const div = document.createElement("div");
+    div.classList.add("form-row");
+    
+    const divChild = document.createElement("div");
+
+    divChild.classList.add("form-group");
+    divChild.classList.add("col-md-4");
+    
+    const newElement = houseHuntingContainer.appendChild(div);
+    const previousDiv = newElement.appendChild(divChild);
+
+    const houseHuntingTripLabel = document.createElement("label");
+    houseHuntingTripLabel.classList.add("form-control");
+    houseHuntingTripLabel.setAttribute("id", "houseHuntingTrip" + count)
+    houseHuntingTripLabel.innerText="House Hunting Trip " + count; 
+
+
+    divChild.appendChild(houseHuntingTripLabel);
+
+    const houseHuntingTripStart = document.createElement("input");
+    houseHuntingTripStart.setAttribute("type","date");
+    houseHuntingTripStart.classList.add("form-control");
+    houseHuntingTripStart.setAttribute("name", "houseTripStartDate" + count);
+    
+    const houseHuntingDateInput = ClassList("col-md-4");
+    houseHuntingDateInput.appendChild(houseHuntingTripStart);
+    newElement.appendChild(houseHuntingDateInput);
+
+    const houseHuntingTripEnd = document.createElement("input");
+    houseHuntingTripEnd.setAttribute("type","date");
+    houseHuntingTripEnd.classList.add("form-control");
+    houseHuntingTripEnd.setAttribute("name", "houseTripEndtDate" + count);
+    
+    const houseHuntingEndInput = ClassList("col-md-4");
+    houseHuntingEndInput.appendChild(houseHuntingTripEnd);
+    newElement.appendChild(houseHuntingEndInput);
+ }
 let childCount=2;
 addChild.addEventListener("click",(e)=>{
     e.preventDefault();
@@ -251,7 +298,7 @@ addChild.addEventListener("click",(e)=>{
 })
 removeChild.addEventListener("click",(e)=>{
     e.preventDefault();
-    if(childCount>=2){
+    if(childCount>2){
         RemoveElement(childContainer);
         childCount--;
     }
@@ -268,7 +315,7 @@ function RemoveElement(containerName){
 
 removePet.addEventListener("click",(e)=>{
     e.preventDefault();
-    if(petCount>=2){
+    if(petCount>2){
     RemoveElement(petContainer);
     petCount--;
     }
@@ -281,8 +328,23 @@ addTraveler.addEventListener("click", (e)=>{
 })
 removeTraveler.addEventListener("click", (e)=>{
     e.preventDefault();
-    if(additionalTravel>=2){
+    if(additionalTravel>2){
     RemoveElement(travelContainer);
-    }
     additionalTravel--;
+    }
+    
+})
+let houseTrip = 1;
+addHouseTrip.addEventListener("click",(e)=>{
+    e.preventDefault();
+    AddHouseHuntingTrip(houseTrip);
+    houseTrip++;
+})
+removeHouseTrip.addEventListener("click",(e)=>{
+    e.preventDefault();
+    if(houseTrip>1){
+    RemoveElement(houseHuntingContainer);
+    houseTrip--;
+    }
+    
 })

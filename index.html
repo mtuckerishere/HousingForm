@@ -55,87 +55,111 @@
               <option value="No">No</option>
             </select>
           </div>
-          
-            <div class="form-group col-md-4 currentBranch">
-              <label for="empBranch">Current Employee Branch</label>
-              <div>
-                <input type="text" class="form-control" name="empBranch" id="empBranchCurrent" value=""
-                  placeholder="Current Branch">
-              </div>
+
+          <div class="form-group col-md-4 currentBranch">
+            <label for="empBranch">Current Employee Branch</label>
+            <div>
+              <input type="text" class="form-control" name="empBranch" id="empBranchCurrent" value=""
+                placeholder="Current Branch">
             </div>
-            <div class="form-group col-md-2 stateCity">
-              <label for="empBranch">City</label>
-              <div>
-                <input type="text" class="form-control" name="city" id="city" value="" placeholder="City">
-              </div>
+          </div>
+          <div class="form-group col-md-2 stateCity">
+            <label for="empBranch">City</label>
+            <div>
+              <input type="text" class="form-control" name="city" id="city" value="" placeholder="City">
             </div>
-            <div class="form-group col-md-2 stateCity">
-              <label for="state">State</label>
-              <div>
-                <input type="text" class="form-control" name="state" id="state" value="" placeholder="State">
-              </div>
+          </div>
+          <div class="form-group col-md-2 stateCity">
+            <label for="state">State</label>
+            <div>
+              <input type="text" class="form-control" name="state" id="state" value="" placeholder="State">
             </div>
-          
+          </div>
+
         </div>
-  
-  <div class="form-row">Other Info</div>
-  <div class="form-row">
-    <div class="form-group col-md-2">
-      <label for="empStartDate">Employee Start Date</label>
-      <input type="date" class="form-control required" name="empStartDate" id="empStartDate" value="" required />
-    </div>
-    <div class="form-group col-md-2">
-      <label for="moveInDate">Desired Move In Date</label>
-      <input type="date" class="form-control required" name="moveInDate" id="moveInDate" value="" required />
-    </div>
-    <div class="form-group col-md-2">
-      <label for="stayingUntil">Last Day of Stay</label>
-      <input type="date" class="form-control required" name="stayingUntil" id="stayingUntil" value="" required />
-    </div>
-    <div class="form-group col-md-6">
-      <label for="approverName">Who must Approve Travel Cost</label>
-      <input type="text" class="form-control" name="approverName" id="approverName" value="" required />
-    </div>
-  </div>
-  <div class="form-row">Travel Included in Agreement</div>
-  <div class="form-row">
-    <div class="form-group col-md-4">
-      <label for="houseHuntingTrips">Number of House Hunting Trips</label>
-      <input type="number" class="form-control" min="0" name="numberOfHouseTrips" id="houseHuntingTrips" value=""
-        required />
-    </div>
-    <div class="form-group col-md-4">
-      <label for="houseHuntingDates">House Hunting Dates</label>
-      <input type="date" class="form-control" name="houseHuntingTripsDate" id="houseHuntingTripsDate" value="" />
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="frequencyOfTravel">Frequency of Airline Travel Home</label>
-      <select class="custom-select" id="frequencyOfTravel" name="frequencyOfTravel" required>
-        <option selected value="">Choose...</option>
-        <option value="Weekly">Weekly</option>
-        <option value="Monthly">Monthly</option>
-        <option value="Bimonthly">Bimonthly</option>
-      </select>
-    </div>
-    <div class="form-group col-md-6">
-      <label for="carRentalDetails">Car Rental Details</label>
-      <input type="text" class="form-control" id="carRentalDetails" placeholder="Specify Rental Details" value=""
-        name="carRentalDetails" required />
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="form-group">
-      <label for="numerOfTravelers">Additional Travelers Approved for Airline Ticket
-        Purchase</label>
-      <input type="number" class="form-control" name="numberOfTravelers" id="numberOfTravelers" min="0" value=""
-        required />
-    </div>
-  </div>
-  <button class="btn btn-primary submitButton">Submit</button>
-  </fieldset>
-  </form>
+        <div class="form-row">Other Info</div>
+        <div class="form-row">
+          <div class="form-group col-md-2">
+            <label for="empStartDate">Employee Start Date</label>
+            <input type="date" class="form-control required" name="empStartDate" id="empStartDate" value="" required />
+          </div>
+          <div class="form-group col-md-2">
+            <label for="moveInDate">Desired Move In Date</label>
+            <input type="date" class="form-control required" name="moveInDate" id="moveInDate" value="" required />
+          </div>
+          <div class="form-group col-md-2">
+            <label for="stayingUntil">Last Day of Stay</label>
+            <input type="date" class="form-control required" name="stayingUntil" id="stayingUntil" value="" required />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="approverName">Who must Approve Travel Cost</label>
+            <input type="text" class="form-control" name="approverName" id="approverName" value="" required />
+          </div>
+        </div>
+        <div class="form-row">Travel Included in Agreement</div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="houseHuntingTrips">Number of House Hunting Trips</label>
+            <input type="number" class="form-control" min="0" name="numberOfHouseTrips" id="houseHuntingTrips" value=""
+              required />
+          </div>
+          <div class="form-group col-md-4">
+            <label for="houseHuntingDates">House Hunting Dates</label>
+            <input type="date" class="form-control" name="houseHuntingTripsDate" id="houseHuntingTripsDate" value="" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="frequencyOfTravel">Frequency of Airline Travel Home</label>
+            <select class="custom-select" id="frequencyOfTravel" name="frequencyOfTravel" required>
+              <option selected value="">Choose...</option>
+              <option value="Weekly">Weekly</option>
+              <option value="Monthly">Monthly</option>
+              <option value="Bimonthly">Bimonthly</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="carRentalDetails">Car Rental Details</label>
+            <input type="text" class="form-control" id="carRentalDetails" placeholder="Specify Rental Details" value=""
+              name="carRentalDetails" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <label for="numerOfTravelers">Were Additional Travelers Approved for Travel</label>
+            <input type="checkbox" class="form-check-label" name="numberOfTravelers" id="travelersApproved" value="Yes">
+            <label class="form-check-label">Yes</label>
+          </div>
+        </div>
+        <fieldset class="additionalTravelerInfo" disabled>
+          <div class="travelContainer">
+            <div class="form-row">
+              <div class="form-group col-md-5">
+                <label for="additionalTravelerFirstName">First Name</label>
+                <input type="text" class="form-control" name="additionalTravelerFirstName"
+                  id="additionalTravelerFirstName">
+              </div>
+              <div class="form-group col-md-5">
+                <label for="additionalTravelerLastName">Last Name</label>
+                <input type="text" class="form-control" name="additionalTravelerLastName"
+                  id="additionalTravelerLastName">
+              </div>
+              <div class="form-group col-md-1">
+                <button class="btn btn-primary addTraveler">
+                  Add Traveler
+                </button>
+              </div>
+              <div class="form-group col-md-1">
+                <button class="btn btn-danger removeTraveler">
+                  Remove Traveler
+                </button>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <button class="btn btn-primary submitButton">Submit</button>
+      </fieldset>
+    </form>
   </div>
   <div class="container employeeForm">
     <form action="/employee" method="Post">

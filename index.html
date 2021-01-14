@@ -131,7 +131,8 @@
         <div class="form-row">
           <div class="form-group col-md-3">
             <label for="numerOfTravelers">Were Additional Travelers Approved for Travel</label>
-            <input type="checkbox" class="form-check-label" name="numberOfTravelers" id="travelersApproved" value="Yes">
+            <input type="checkbox" class="form-check-label" name="additionalTravelers" id="travelersApproved"
+              value="Yes">
             <label class="form-check-label">Yes</label>
           </div>
         </div>
@@ -212,9 +213,9 @@
             <input type="date" class="form-control" name="birthdate" id="birthdate" value="" required />
           </div>
           <div class="form-group col-md-4">
-            <label for="cellphone">Cellphone</label>
-            <input type="tel" class="form-control" id="cellphone" name="cellphone" placeholder="1-(555)-555-5555"
-              value="" required />
+            <label for="cellphone">Cellphone (10 Digit)</label>
+            <input type="tel" class="form-control" id="cellphone" name="cellphone" maxlength="10"
+              placeholder="1-(555)-555-5555" value="" required />
           </div>
           <div class="form-group col-md-4">
             <label for="email">Email</label>

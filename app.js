@@ -279,29 +279,36 @@ function AddChildName(count){
     const newElement = houseHuntingContainer.appendChild(div);
     const previousDiv = newElement.appendChild(divChild);
 
-    const houseHuntingTripLabel = document.createElement("label");
-    houseHuntingTripLabel.classList.add("form-control");
-    houseHuntingTripLabel.setAttribute("id", "houseHuntingTrip" + count)
-    houseHuntingTripLabel.innerText="House Hunting Trip " + count; 
+    // const houseHuntingTripLabel = document.createElement("label");
+    // houseHuntingTripLabel.classList.add("form-control");
+    // houseHuntingTripLabel.setAttribute("id", "houseHuntingTrip" + count)
+    // houseHuntingTripLabel.innerText="House Hunting Trip " + count; 
 
 
-    divChild.appendChild(houseHuntingTripLabel);
+  
+    const createStartLabel = document.createElement("label");
+    createStartLabel.innerText = "Start Date for House Hunting Trip " + count;
+
+    
 
     const houseHuntingTripStart = document.createElement("input");
     houseHuntingTripStart.setAttribute("type","date");
     houseHuntingTripStart.classList.add("form-control");
     houseHuntingTripStart.setAttribute("name", "houseTripStartDate" + count);
-    
-    const houseHuntingDateInput = ClassList("col-md-4");
-    houseHuntingDateInput.appendChild(houseHuntingTripStart);
-    newElement.appendChild(houseHuntingDateInput);
 
+    
+    divChild.appendChild(createStartLabel);
+    divChild.appendChild(houseHuntingTripStart);
+  
+    const createEndLabel = document.createElement("label");
+    createEndLabel.innerText = "End Date for House Hunting Trip " + count;
     const houseHuntingTripEnd = document.createElement("input");
     houseHuntingTripEnd.setAttribute("type","date");
     houseHuntingTripEnd.classList.add("form-control");
     houseHuntingTripEnd.setAttribute("name", "houseTripEndtDate" + count);
     
     const houseHuntingEndInput = ClassList("col-md-4");
+    houseHuntingEndInput.appendChild(createEndLabel);
     houseHuntingEndInput.appendChild(houseHuntingTripEnd);
     newElement.appendChild(houseHuntingEndInput);
  }

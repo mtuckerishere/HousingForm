@@ -24,6 +24,9 @@ const removePet = document.querySelector(".removePet");
 
 const isNewEmployee = document.querySelector("#isNewEmployee");
 const stateCity = document.querySelectorAll(".stateCity");
+const state = document.querySelector("#state");
+const empBranch = document.querySelector("#empBranchCurrent");
+const city = document.querySelector("#city");
 const currentBranch = document.querySelector(".currentBranch");
 const travelerApproved = document.querySelector("#travelersApproved")
 const additionalTravelerInfo = document.querySelector(".additionalTravelerInfo");
@@ -49,6 +52,9 @@ isNewEmployee.addEventListener("change",()=>{
         currentBranch.style.display="none";
         for(i=0;i<stateCity.length; i++){
         stateCity[i].style.display ="block"
+        state.disabled=false;
+        city.disabled = false;
+        empBranch.disabled = true; 
         }    
 
     }
@@ -56,10 +62,14 @@ isNewEmployee.addEventListener("change",()=>{
         console.log(isNewEmployee.value);
         for(i=0;i<stateCity.length; i++){
             stateCity[i].style.display ="none"
-            }
+            state.disabled=true;
+            city.disabled = true;
             
+            }   
+        
         currentBranch.style.display="block";
-        console.log(stateCity);
+        empBranch.disabled = false;  
+        
     }
 })
 sameOnGovID.addEventListener("change",()=>{

@@ -41,6 +41,7 @@ const govLastName = document.querySelector("#empLastNameGov");
 const addHouseTrip = document.querySelector(".addHouseTrip");
 const removeHouseTrip = document.querySelector(".removeHouseTrip");
 const houseHuntingContainer = document.querySelector(".houseHuntingContainer");
+const childsBirthday = document.querySelectorAll("#childsBirthday");
 
 isNewEmployee.addEventListener("change",()=>{
     if(isNewEmployee.value==="Yes"){
@@ -48,8 +49,7 @@ isNewEmployee.addEventListener("change",()=>{
         currentBranch.style.display="none";
         for(i=0;i<stateCity.length; i++){
         stateCity[i].style.display ="block"
-        }
-        
+        }    
 
     }
     if(isNewEmployee.value==="No"){
@@ -140,12 +140,14 @@ function AddAdditionalPet(count){
     divChild.classList.add("col-md-3");
     
     const newElement = petContainer.appendChild(div);
-    const previousDiv = newElement.appendChild(divChild);
+    newElement.appendChild(divChild);
 
     const newAnimal = document.createElement("select");
     newAnimal.classList.add("form-control")
     newAnimal.setAttribute("name","typeOfPet" + count );
-    
+    const createAnimalTypeLabel = document.createElement("label");
+    createAnimalTypeLabel.innerText = "Type of Pet";
+
     const animalTypes = ["Dog","Cat"];
     for(i=0;i<animalTypes.length;i++){
         const animalType = document.createElement("option");
@@ -153,7 +155,7 @@ function AddAdditionalPet(count){
         animalType.text = animalTypes[i];
         newAnimal.appendChild(animalType);
     }
-    
+    divChild.appendChild(createAnimalTypeLabel)
     divChild.appendChild(newAnimal);
 
     const inputBreed = document.createElement("input");
@@ -161,8 +163,11 @@ function AddAdditionalPet(count){
     inputBreed.classList.add("form-control");
     inputBreed.setAttribute("name","breedOfPet" + count);
     inputBreed.setAttribute("placeholder","Breed of Pet");
+    const createBreedLabel = document.createElement("label");
+    createBreedLabel.innerText = "Breed of Pet";
  
     const newBreed = ClassList("col-md-3");
+    newBreed.appendChild(createBreedLabel);
     newBreed.appendChild(inputBreed);
     newElement.appendChild(newBreed);
 
@@ -171,8 +176,11 @@ function AddAdditionalPet(count){
     inputWeight.setAttribute("min","0");
     inputWeight.classList.add("form-control");
     inputWeight.setAttribute("name", "petWeight" + count);
+    const createWeightLabel = document.createElement("label");
+    createWeightLabel.innerText = "Pet Weight(lbs.)";
 
     const newWeight = ClassList("col-md-3");
+    newWeight.appendChild(createWeightLabel);
     newWeight.appendChild(inputWeight);
     newElement.appendChild(newWeight);
 }
@@ -187,28 +195,37 @@ function AddChildName(count){
     divChild.classList.add("col-md-3");
     
     const newElement = childContainer.appendChild(div);
-    const previousDiv = newElement.appendChild(divChild);
+    newElement.appendChild(divChild);
 
     const inputName = document.createElement("input");
     inputName.setAttribute("type","text");
     inputName.classList.add("form-control")
     inputName.setAttribute("name","childName" + count );
-    inputName.setAttribute("placeholder","Childs Name");
-    
+    inputName.setAttribute("placeholder","Child's Name");
+    const createChildLabel = document.createElement("label");
+    createChildLabel.innerText = "Child's Name";
+
+    divChild.appendChild(createChildLabel);
     divChild.appendChild(inputName);
 
     const inputDate = document.createElement("input");
     inputDate.setAttribute("type","date");
     inputDate.classList.add("form-control");
     inputDate.setAttribute("name", "childBirthdate" +count);
-    
+    inputDate.setAttribute("id","childsBirthday")
+    const createBirthDayLabel = document.createElement("label");
+    createBirthDayLabel.innerText = "Child's Birthday"
+
     const newStuff = ClassList("col-md-3");
+    newStuff.appendChild(createBirthDayLabel);
     newStuff.appendChild(inputDate);
     newElement.appendChild(newStuff);
 
     const inputGender = document.createElement("select");
     inputGender.classList.add("form-control")
     inputGender.setAttribute("name","childGender" + count );
+    const createGenderLabel = document.createElement("label");
+    createGenderLabel.innerText = "Gender";
     
     const genderSelection = ["Male","Female"];
     for(i=0;i<genderSelection.length;i++){
@@ -218,6 +235,7 @@ function AddChildName(count){
         inputGender.appendChild(genderOption);
     }
     const selectGender = ClassList("col-md-3");
+    selectGender.appendChild(createGenderLabel);
     selectGender.appendChild(inputGender);
     newElement.appendChild(selectGender);
  }
@@ -232,14 +250,17 @@ function AddChildName(count){
     divChild.classList.add("col-md-5");
     
     const newElement = travelContainer.appendChild(div);
-    const previousDiv = newElement.appendChild(divChild);
+    newElement.appendChild(divChild);
 
     const travelerFirstName = document.createElement("input");
     travelerFirstName.setAttribute("type","text");
     travelerFirstName.classList.add("form-control");
     travelerFirstName.setAttribute("name", "additionalTravelerFirstName" + count)
     travelerFirstName.setAttribute("placeholder", "First Name");
+    const createFirstNameLabel = document.createElement("label");
+    createFirstNameLabel.innerText = "First Name";
 
+    divChild.appendChild(createFirstNameLabel);
     divChild.appendChild(travelerFirstName);
 
     const travelerLastName = document.createElement("input");
@@ -247,8 +268,11 @@ function AddChildName(count){
     travelerLastName.classList.add("form-control");
     travelerLastName.setAttribute("name", "additionalTravelerLastName" + count);
     travelerLastName.setAttribute("placeholder","Last Name");
+    const createLastNameLabel = document.createElement("label");
+    createLastNameLabel.innerText = "Last Name";
 
     const inputTravelerLastName = ClassList("col-md-5");
+    inputTravelerLastName.appendChild(createLastNameLabel);
     inputTravelerLastName.appendChild(travelerLastName);
     newElement.appendChild(inputTravelerLastName);
 
@@ -277,25 +301,15 @@ function AddChildName(count){
     divChild.classList.add("col-md-4");
     
     const newElement = houseHuntingContainer.appendChild(div);
-    const previousDiv = newElement.appendChild(divChild);
+    newElement.appendChild(divChild);
 
-    // const houseHuntingTripLabel = document.createElement("label");
-    // houseHuntingTripLabel.classList.add("form-control");
-    // houseHuntingTripLabel.setAttribute("id", "houseHuntingTrip" + count)
-    // houseHuntingTripLabel.innerText="House Hunting Trip " + count; 
-
-
-  
     const createStartLabel = document.createElement("label");
     createStartLabel.innerText = "Start Date for House Hunting Trip " + count;
-
-    
 
     const houseHuntingTripStart = document.createElement("input");
     houseHuntingTripStart.setAttribute("type","date");
     houseHuntingTripStart.classList.add("form-control");
     houseHuntingTripStart.setAttribute("name", "houseTripStartDate" + count);
-
     
     divChild.appendChild(createStartLabel);
     divChild.appendChild(houseHuntingTripStart);

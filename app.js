@@ -2,6 +2,7 @@ const toggleForm = document.querySelector("#toggleForm");
 const recruiterForm = document.querySelector(".recruiterInformation");
 const employeeForm = document.querySelector(".employeeForm");
 const employeeFields = document.querySelector(".employeeFields");
+const recruiterFields = document.querySelector(".recruiterFields");
 
 const familyInfo = document.querySelector(".family");
 const hasFamily = document.querySelector('#addFamilyYes');
@@ -21,7 +22,6 @@ const petContainer = document.querySelector(".petContainer");
 const addPet = document.querySelector(".addPet");
 const removePet = document.querySelector(".removePet");
 
-const recruiterFields = document.querySelector(".recruiterFields");
 const isNewEmployee = document.querySelector("#isNewEmployee");
 const stateCity = document.querySelectorAll(".stateCity");
 const currentBranch = document.querySelector(".currentBranch");
@@ -41,7 +41,7 @@ const govLastName = document.querySelector("#empLastNameGov");
 const addHouseTrip = document.querySelector(".addHouseTrip");
 const removeHouseTrip = document.querySelector(".removeHouseTrip");
 const houseHuntingContainer = document.querySelector(".houseHuntingContainer");
-const childsBirthday = document.querySelectorAll("#childsBirthday");
+
 
 isNewEmployee.addEventListener("change",()=>{
     if(isNewEmployee.value==="Yes"){
@@ -120,7 +120,7 @@ function EnableFields(field, displayInfo, hasAttribute){
         displayInfo.style.display="none";
     }
 }
-function ClassList(size){
+function CreateDiv(size){
     const divChild = document.createElement("div");
 
     divChild.classList.add("form-group");
@@ -163,10 +163,11 @@ function AddAdditionalPet(count){
     inputBreed.classList.add("form-control");
     inputBreed.setAttribute("name","breedOfPet" + count);
     inputBreed.setAttribute("placeholder","Breed of Pet");
+    inputBreed.setAttribute("required","");
     const createBreedLabel = document.createElement("label");
     createBreedLabel.innerText = "Breed of Pet";
  
-    const newBreed = ClassList("col-md-3");
+    const newBreed = CreateDiv("col-md-3");
     newBreed.appendChild(createBreedLabel);
     newBreed.appendChild(inputBreed);
     newElement.appendChild(newBreed);
@@ -176,10 +177,11 @@ function AddAdditionalPet(count){
     inputWeight.setAttribute("min","0");
     inputWeight.classList.add("form-control");
     inputWeight.setAttribute("name", "petWeight" + count);
+    inputWeight.setAttribute("required","");
     const createWeightLabel = document.createElement("label");
     createWeightLabel.innerText = "Pet Weight(lbs.)";
 
-    const newWeight = ClassList("col-md-3");
+    const newWeight = CreateDiv("col-md-3");
     newWeight.appendChild(createWeightLabel);
     newWeight.appendChild(inputWeight);
     newElement.appendChild(newWeight);
@@ -202,6 +204,7 @@ function AddChildName(count){
     inputName.classList.add("form-control")
     inputName.setAttribute("name","childName" + count );
     inputName.setAttribute("placeholder","Child's Name");
+    inputName.setAttribute("required","");
     const createChildLabel = document.createElement("label");
     createChildLabel.innerText = "Child's Name";
 
@@ -213,10 +216,13 @@ function AddChildName(count){
     inputDate.classList.add("form-control");
     inputDate.setAttribute("name", "childBirthdate" +count);
     inputDate.setAttribute("id","childsBirthday")
+    inputDate.setAttribute("min", "1900-01-01")
+    inputDate.setAttribute("max", "2100-01-01")
+    inputDate.setAttribute("required","");
     const createBirthDayLabel = document.createElement("label");
     createBirthDayLabel.innerText = "Child's Birthday"
 
-    const newStuff = ClassList("col-md-3");
+    const newStuff = CreateDiv("col-md-3");
     newStuff.appendChild(createBirthDayLabel);
     newStuff.appendChild(inputDate);
     newElement.appendChild(newStuff);
@@ -234,7 +240,7 @@ function AddChildName(count){
         genderOption.text = genderSelection[i];
         inputGender.appendChild(genderOption);
     }
-    const selectGender = ClassList("col-md-3");
+    const selectGender = CreateDiv("col-md-3");
     selectGender.appendChild(createGenderLabel);
     selectGender.appendChild(inputGender);
     newElement.appendChild(selectGender);
@@ -257,6 +263,7 @@ function AddChildName(count){
     travelerFirstName.classList.add("form-control");
     travelerFirstName.setAttribute("name", "additionalTravelerFirstName" + count)
     travelerFirstName.setAttribute("placeholder", "First Name");
+    travelerFirstName.setAttribute("required","");
     const createFirstNameLabel = document.createElement("label");
     createFirstNameLabel.innerText = "First Name";
 
@@ -268,28 +275,17 @@ function AddChildName(count){
     travelerLastName.classList.add("form-control");
     travelerLastName.setAttribute("name", "additionalTravelerLastName" + count);
     travelerLastName.setAttribute("placeholder","Last Name");
+    travelerLastName.setAttribute("required","");
     const createLastNameLabel = document.createElement("label");
     createLastNameLabel.innerText = "Last Name";
 
-    const inputTravelerLastName = ClassList("col-md-5");
+    const inputTravelerLastName = CreateDiv("col-md-5");
     inputTravelerLastName.appendChild(createLastNameLabel);
     inputTravelerLastName.appendChild(travelerLastName);
     newElement.appendChild(inputTravelerLastName);
 
  }
- function NewDivFormat(containerName){
-    const div = document.createElement("div");
-    div.classList.add("form-row");
-    
-    const divChild = document.createElement("div");
 
-    divChild.classList.add("form-group");
-    divChild.classList.add("col-md-4");
-    
-    const newElement = containerName.appendChild(div);
-    const previousDiv = newElement.appendChild(divChild);
-  
- }
  function AddHouseHuntingTrip(count){
      
     const div = document.createElement("div");
@@ -309,6 +305,9 @@ function AddChildName(count){
     const houseHuntingTripStart = document.createElement("input");
     houseHuntingTripStart.setAttribute("type","date");
     houseHuntingTripStart.classList.add("form-control");
+    houseHuntingTripStart.setAttribute("required","");
+    houseHuntingTripStart.setAttribute("min", "1900-01-01")
+    houseHuntingTripStart.setAttribute("max", "2100-01-01")
     houseHuntingTripStart.setAttribute("name", "houseTripStartDate" + count);
     
     divChild.appendChild(createStartLabel);
@@ -319,9 +318,12 @@ function AddChildName(count){
     const houseHuntingTripEnd = document.createElement("input");
     houseHuntingTripEnd.setAttribute("type","date");
     houseHuntingTripEnd.classList.add("form-control");
+    houseHuntingTripEnd.setAttribute("min", "1900-01-01")
+    houseHuntingTripEnd.setAttribute("max", "2100-01-01")
+    houseHuntingTripEnd.setAttribute("required","");
     houseHuntingTripEnd.setAttribute("name", "houseTripEndtDate" + count);
     
-    const houseHuntingEndInput = ClassList("col-md-4");
+    const houseHuntingEndInput = CreateDiv("col-md-4");
     houseHuntingEndInput.appendChild(createEndLabel);
     houseHuntingEndInput.appendChild(houseHuntingTripEnd);
     newElement.appendChild(houseHuntingEndInput);

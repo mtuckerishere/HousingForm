@@ -83,15 +83,18 @@
         <div class="form-row">
           <div class="form-group col-md-2">
             <label for="empStartDate">Employee Start Date</label>
-            <input type="date" class="form-control required" name="empStartDate" id="empStartDate" value="" required />
+            <input type="date" class="form-control required" name="empStartDate" id="empStartDate" min="1900-01-01"
+              max="2100-01-01" value="" required />
           </div>
           <div class="form-group col-md-2">
             <label for="moveInDate">Desired Move In Date</label>
-            <input type="date" class="form-control required" name="moveInDate" id="moveInDate" value="" required />
+            <input type="date" class="form-control required" name="moveInDate" id="moveInDate" min="1900-01-01"
+              max="2100-01-01" value="" required />
           </div>
           <div class="form-group col-md-2">
             <label for="stayingUntil">Last Day of Stay</label>
-            <input type="date" class="form-control required" name="stayingUntil" id="stayingUntil" value="" required />
+            <input type="date" class="form-control required" name="stayingUntil" id="stayingUntil" min="1900-01-01"
+              max="2100-01-01" value="" required />
           </div>
           <div class="form-group col-md-6">
             <label for="approverName">Who must Approve Travel Cost</label>
@@ -142,12 +145,12 @@
               <div class="form-group col-md-5">
                 <label for="additionalTravelerFirstName">First Name</label>
                 <input type="text" class="form-control" name="additionalTravelerFirstName"
-                  id="additionalTravelerFirstName" placeholder="First Name">
+                  id="additionalTravelerFirstName" placeholder="First Name" required>
               </div>
               <div class="form-group col-md-5">
                 <label for="additionalTravelerLastName">Last Name</label>
                 <input type="text" class="form-control" name="additionalTravelerLastName"
-                  id="additionalTravelerLastName" placeholder="Last Name">
+                  id="additionalTravelerLastName" placeholder="Last Name" required>
               </div>
               <div class="form-group col-md-1">
                 <button class="btn btn-primary addTraveler">
@@ -210,7 +213,8 @@
         <div class="form-row">
           <div class="form-group col-md-4">
             <label for="birthdate">Birthdate</label>
-            <input type="date" class="form-control" name="birthdate" id="birthdate" value="" required />
+            <input type="date" class="form-control" name="birthdate" id="birthdate" value="" min="1900-01-01"
+              max="2100-01-01" required />
           </div>
           <div class="form-group col-md-4">
             <label for="cellphone">Cellphone (10 Digit)</label>
@@ -229,7 +233,8 @@
         <div class="form-row">
           <div class="form-group col-md-3">
             <label for="empMoveInDate">Date</label>
-            <input type="date" class="form-control" name="moveInDate" id="empMoveInDate" value="" required />
+            <input type="date" class="form-control" name="moveInDate" id="empMoveInDate" value="" required
+              min="1900-01-01" max="2100-01-01" />
           </div>
           <div class="form-group col-md-3">
             <label for="bedroom">Number of Bedrooms</label>
@@ -252,7 +257,7 @@
         </div>
         <div class="form-row">
           <div class="form-group col-md-4">
-            <label>Are other family memebers traveling with you?</label>
+            <label>Are other family members traveling with you?</label>
             <div>
               <input class="form-check-label" type="checkbox" name="addFamily" id="addFamilyYes" value="Yes" />
               <label class="form-check-label" for="addFamily"> Yes </label>
@@ -275,7 +280,6 @@
           </div>
         </div>
         <div class="form-row">
-          <!--Hide unless Employee is travelling with fmaily-->
         </div>
         <fieldset class="familyInfoField" disabled>
           <div class="form-row family" id="family">
@@ -291,7 +295,8 @@
             </div>
             <div class="form-group col-md-2">
               <label for="spouseBirthdate">Birthdate</label>
-              <input type="date" class="form-control" id="spouseBirthdate" name="spouseBirthDate" value="" required />
+              <input type="date" class="form-control" id="spouseBirthdate" name="spouseBirthDate" min="1900-01-01"
+                max="2100-01-01" value="" required />
             </div>
           </div>
         </fieldset>
@@ -302,11 +307,12 @@
               <div class="form-group col-md-3">
                 <label for="childName">Child's Name</label>
                 <input type="text" class="form-control" id="childName" name="childsName" placeholder="Child's Name"
-                  value="" />
+                  value="" required />
               </div>
               <div class="form-group col-md-3">
                 <label for="childsBirthday">Child's Birthday</label>
-                <input type="date" class="form-control" name="childsBirthDate" id="childsBirthday" value="" />
+                <input type="date" class="form-control" name="childsBirthDate" min="1900-01-01" max="2100-01-01"
+                  id="childsBirthday" value="" />
               </div>
               <div class="form-group col-md-3">
                 <label for="childGender">Gender</label>
@@ -343,11 +349,11 @@
               <div class="form-group col-md-3">
                 <label for="breedOfPet">Breed of Pet</label>
                 <input type="text" class="form-control" id="breedOfPet" name="breedOfPet" value=""
-                  placeholder="Breed of Pet" />
+                  placeholder="Breed of Pet" required />
               </div>
               <div class="form-group col-md-3">
                 <label for="petWeight">Pet Weight(lbs.)</label>
-                <input type="number" class="form-control" id="petWeight" name="petWeight" min="0" value="" />
+                <input type="number" class="form-control" id="petWeight" name="petWeight" min="0" value="" required />
               </div>
               <div class="form-group col-md-1">
                 <button class="btn btn-primary addPet">Add Pets</button>
